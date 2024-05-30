@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.MainMenu">
+
+    <TextView
+        android:id="@+id/txtViewName"
+        android:layout_width="150sp"
+        android:layout_height="40sp"
+        android:layout_marginTop="32dp"
+        android:text="@string/name"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnSignOut"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSignOut"
+        android:layout_width="120sp"
+        android:layout_height="50sp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#5A5A5A"
+        android:text="@string/SignOut"
+        android:textSize="20sp"
+        app:cornerRadius="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/txtViewName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnClients"
+        android:layout_width="200sp"
+        android:layout_height="75sp"
+        android:text="@string/btnClient"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnVehicles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewName"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/btnVehicles"
+        android:layout_width="200sp"
+        android:layout_height="75sp"
+        android:text="@string/btnVehicles"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSupplies"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnClients"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/btnSupplies"
+        android:layout_width="200sp"
+        android:layout_height="75sp"
+        android:text="@string/btnSupplies"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSales"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnVehicles"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/btnSales"
+        android:layout_width="200sp"
+        android:layout_height="75sp"
+        android:text="@string/btnSales"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSupplies"
+        app:layout_constraintVertical_bias="0.5" />
+</androidx.constraintlayout.widget.ConstraintLayout>

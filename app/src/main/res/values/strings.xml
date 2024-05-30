@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Proyecto2</string>
+    <string name="Cedula">Cedula</string>
+    <string name="password">Contraseña</string>
+    <string name="SignIn">Ingresar</string>
+    <string name="SignUp">Registrarse</string>
+    <string name="name">Nombre</string>
+    <string name="role">Rol</string>
+    <string name="SignOut">Salir</string>
+    <string name="btnClient">Clientes</string>
+    <string name="btnVehicles">Vehiculos</string>
+    <string name="btnSupplies">Insumos</string>
+    <string name="btnSales">Ventas</string>
+    <string name="btnBack">Volver</string>
+    <string name="nit">NIT</string>
+    <string name="phone">Celular</string>
+    <string name="btnRegister">Registrar</string>
+    <string name="btnList">Listar</string>
+    <string name="reference">Referencia</string>
+    <string name="price">Precio</string>
+    <string name="brand">Marca</string>
+    <string name="client">Cliente</string>
+    <string name="productName">Producto</string>
+    <string name="productQuantity">Cantidad</string>
+    <string name="totalSale">Total</string>
+    <string name="btnAdd">Agregar</string>
+</resources>
