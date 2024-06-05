@@ -24,4 +24,5 @@
     <string name="productQuantity">Cantidad</string>
     <string name="totalSale">Total</string>
     <string name="btnAdd">Agregar</string>
+    <string name="btnSaleDetail">Detalles</string>
 </resources>
