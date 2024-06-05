@@ -10,7 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proyecto2.R
 import com.example.proyecto2.databinding.ActivityMainMenuBinding
-
+import com.example.proyecto2.models.Globals
 class MainMenu : AppCompatActivity(), View.OnClickListener {
     lateinit var binding : ActivityMainMenuBinding
 
@@ -23,6 +23,7 @@ class MainMenu : AppCompatActivity(), View.OnClickListener {
         binding.btnVehicles.setOnClickListener(this)
         binding.btnSupplies.setOnClickListener(this)
         binding.btnSales.setOnClickListener(this)
+        binding.txtViewName.text = Globals.getSharePreferenceName(this)
 
     }
     override fun onClick(v: View?) {
