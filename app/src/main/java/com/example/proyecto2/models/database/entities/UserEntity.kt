@@ -9,8 +9,5 @@ class UserEntity {
     var name: String = ""
     var password: String = ""
     var roll: String = ""
-    fun getDataPreference(): String {
-        //retornar json
-        return "{\"id\":\"${id.toString()}\",\"name\":\"$name\",\"roll\":\"$roll\"}"
-    }
+
 }

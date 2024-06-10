@@ -10,6 +10,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proyecto2.R
 import com.example.proyecto2.databinding.ActivityRegisterClientBinding
+import com.example.proyecto2.models.Globals
+import com.example.proyecto2.models.database.entities.ClientEntity
 
 class RegisterClient : AppCompatActivity(), View.OnClickListener {
     lateinit var binding : ActivityRegisterClientBinding
@@ -25,10 +27,20 @@ class RegisterClient : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.btnRegisterClient -> {
+                var cliente = ClientEntity()
+                cliente.name = binding.txtNameClient.text.toString()
+                cliente.nit = binding.txtNitClient.text.toString()
+                cliente.phone = binding.txtPhoneClient.text.toString()
+                var id = Globals.getSharePreferenceId(this)
+                cliente.idUser = id.toInt()
+                Globals.getDatabase(this)?.clientDao()?.insertClient(cliente)
+                Globals.listaClients.clients.add(cliente)
+                clearFields()
                 Toast.makeText(this, "Cliente registrado", Toast.LENGTH_LONG).show()
             }
             R.id.btnListClient -> {
                 val intent = Intent(this, ViewList::class.java)
+                intent.putExtra("tipo", "client")
                 startActivity(intent)
             }
             R.id.btnBackClient -> {
@@ -36,5 +48,10 @@ class RegisterClient : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
         }
+    }
+    private fun clearFields() {
+        binding.txtNameClient.setText("")
+        binding.txtNitClient.setText("")
+        binding.txtPhoneClient.setText("")
     }
 }

@@ -14,7 +14,7 @@
         android:ems="10"
         android:hint="@string/brand"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/txtNameVehicle"
+        app:layout_constraintBottom_toTopOf="@+id/txtModelVehicle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,11 +22,11 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <EditText
-        android:id="@+id/txtNameVehicle"
+        android:id="@+id/txtModelVehicle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/name"
+        android:hint="Modelo"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/txtPriceVehicle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNameVehicle"
+        app:layout_constraintTop_toBottomOf="@+id/txtModelVehicle"
         app:layout_constraintVertical_bias="0.5" />
 
     <Button

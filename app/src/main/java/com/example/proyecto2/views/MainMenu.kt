@@ -23,7 +23,9 @@ class MainMenu : AppCompatActivity(), View.OnClickListener {
         binding.btnVehicles.setOnClickListener(this)
         binding.btnSupplies.setOnClickListener(this)
         binding.btnSales.setOnClickListener(this)
-        binding.txtViewName.text = Globals.getSharePreferenceName(this)
+        var texto = Globals.getSharePreferenceName(this)
+        texto = texto + "\n" + Globals.getSharePreferenceRoll(this)
+        binding.txtViewName.text = texto
 
     }
     override fun onClick(v: View?) {

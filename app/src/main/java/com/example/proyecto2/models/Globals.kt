@@ -49,7 +49,7 @@ class Globals {
 
         fun initDatabase(context: Context) {
             database =
-                Room.databaseBuilder(context, ProjectDataBase::class.java, "project_database")
+                Room.databaseBuilder(context, ProjectDataBase::class.java, "project_database2")
                     .allowMainThreadQueries().build()
         }
     }

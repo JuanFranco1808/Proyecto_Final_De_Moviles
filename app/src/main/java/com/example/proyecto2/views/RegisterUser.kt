@@ -3,6 +3,8 @@ package com.example.proyecto2.views
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +23,15 @@ class RegisterUser : AppCompatActivity(), View.OnClickListener{
         binding = ActivityRegisterUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnSignInUser.setOnClickListener(this)
+        // Lista de roles para el spinner
+        val roles = listOf("User","Admin")
+        // Crear un adaptador para el spinner
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, roles)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        // Asignar el adaptador al spinner usando View Binding
+        binding.spinnerRoleUser.adapter = adapter
     }
+
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.btnSignInUser -> {
@@ -29,14 +39,15 @@ class RegisterUser : AppCompatActivity(), View.OnClickListener{
                 user.name = binding.txtNameUser.text.toString()
                 user.cedula = binding.txtCedulaUser.text.toString()
                 user.password = binding.txtPasswordUser.text.toString()
-                user.roll = binding.txtRoleUser.text.toString()
+                //user.roll = binding.txtRoleUser.text.toString()
+                user.roll = binding.spinnerRoleUser.selectedItem.toString()
                 Globals.getDatabase(this)?.userDao()?.insertUser(user)
                 Globals.listaUsers.users.add(user)
-                Globals.addSharePreference(this,user)
-                Toast.makeText(this, "Se ha agregado una persona", Toast.LENGTH_LONG).show()
+                var usernew = Globals.getDatabase(this)?.userDao()?.getUserByCedulaAndPassword(user.cedula, user.password)
+                Globals.addSharePreference(this,usernew!!)
+                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_LONG).show()
                 clearFields()
                 val intent = Intent(this, MainMenu::class.java)
-                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_LONG).show()
                 startActivity(intent)
             }
         }
@@ -45,6 +56,5 @@ class RegisterUser : AppCompatActivity(), View.OnClickListener{
         binding.txtNameUser.setText("")
         binding.txtCedulaUser.setText("")
         binding.txtPasswordUser.setText("")
-        binding.txtRoleUser.setText("")
     }
 }

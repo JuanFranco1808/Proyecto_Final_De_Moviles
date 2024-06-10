@@ -3,6 +3,8 @@ package com.example.proyecto2.views
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +25,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         Globals.initDatabase(this)
         binding.btnSignIn.setOnClickListener(this)
         binding.btnSignUp.setOnClickListener(this)
+
     }
     override fun onClick(v: View?) {
         when(v?.id) {

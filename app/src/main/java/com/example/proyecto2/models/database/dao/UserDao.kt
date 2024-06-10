@@ -18,5 +18,7 @@ interface UserDao {
     fun getAllUsers(): List<UserEntity>
     @Query("SELECT * FROM user where cedula = :cedula and password = :password")
     fun getUserByCedulaAndPassword(cedula: String, password: String): UserEntity
+    @Query("SELECT name FROM user where id = :id")
+    fun getUserNameById(id: Int): String
 
 }
