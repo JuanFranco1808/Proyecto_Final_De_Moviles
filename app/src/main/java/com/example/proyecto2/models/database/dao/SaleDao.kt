@@ -16,4 +16,6 @@ interface SaleDao {
     fun updateSale(sale: SaleEntity)
     @Query("SELECT * FROM sale")
     fun getAllSales(): List<SaleEntity>
+    @Query("SELECT * FROM sale WHERE date = :date")
+    fun getSaleByDate(date: String): SaleEntity
 }

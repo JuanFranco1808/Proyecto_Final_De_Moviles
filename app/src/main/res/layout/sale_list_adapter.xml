@@ -19,7 +19,7 @@
         android:id="@+id/txtSaleIdClient"
         android:layout_width="150sp"
         android:layout_height="30sp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:text="Id Client"
         app:layout_constraintEnd_toStartOf="@+id/btnSaleDetails"
         app:layout_constraintHorizontal_bias="0.5"
@@ -30,17 +30,17 @@
         android:id="@+id/txtSaleTotal"
         android:layout_width="150sp"
         android:layout_height="30sp"
-        android:layout_marginTop="12dp"
         android:text="Total"
-        app:layout_constraintEnd_toStartOf="@+id/btnSaleDetails"
+        app:layout_constraintEnd_toEndOf="@+id/btnSaleDetails"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSaleIdClient" />
+        app:layout_constraintTop_toTopOf="@+id/txtSaleIdUser" />
 
     <Button
         android:id="@+id/btnSaleDetails"
-        android:layout_width="130sp"
-        android:layout_height="50sp"
-        android:layout_marginTop="60dp"
+        android:layout_width="148dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="68dp"
         android:backgroundTint="#2196F3"
         android:text="@string/btnSaleDetail"
         android:textSize="20sp"

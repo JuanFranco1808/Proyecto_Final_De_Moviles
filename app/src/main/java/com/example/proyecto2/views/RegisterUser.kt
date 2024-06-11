@@ -23,12 +23,9 @@ class RegisterUser : AppCompatActivity(), View.OnClickListener{
         binding = ActivityRegisterUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnSignInUser.setOnClickListener(this)
-        // Lista de roles para el spinner
         val roles = listOf("User","Admin")
-        // Crear un adaptador para el spinner
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, roles)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        // Asignar el adaptador al spinner usando View Binding
         binding.spinnerRoleUser.adapter = adapter
     }
 
