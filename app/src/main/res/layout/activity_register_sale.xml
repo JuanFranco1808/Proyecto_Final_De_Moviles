@@ -41,7 +41,7 @@
         android:fontFamily="@font/roboto_slab"
         android:scrollbars="vertical"
         android:text=""
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         android:id="@+id/btnRegisterSale"
         android:layout_width="140sp"
         android:layout_height="50sp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="44dp"
         android:backgroundTint="#4CAF50"
         android:fontFamily="@font/roboto_slab"
         android:text="@string/btnRegister"
@@ -132,5 +132,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/spinnerType"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textEtiquetaTotal"
+        android:layout_width="78dp"
+        android:layout_height="19dp"
+        app:layout_constraintStart_toStartOf="@+id/txtResumenSale"
+        app:layout_constraintTop_toBottomOf="@+id/txtResumenSale" />
+
+    <TextView
+        android:id="@+id/textTotal"
+        android:layout_width="112dp"
+        android:layout_height="21dp"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="@+id/txtResumenSale"
+        app:layout_constraintTop_toBottomOf="@+id/txtResumenSale" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -87,24 +87,37 @@ class RegisterSale : AppCompatActivity(), View.OnClickListener{
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.btnAddProductSale -> {
+                val selectProduct = binding.autoCompleteTextViewProduct.text.toString()
+                val cantidad = binding.txtProductQuantitySale.text.toString()
+                if (selectProduct == "") {
+                    Toast.makeText(this, "Seleccione un producto", Toast.LENGTH_LONG).show()
+                    return
+                }
+                if (cantidad == "" || cantidad.toInt() == 0){
+                    Toast.makeText(this, "Ingrese una cantidad valida", Toast.LENGTH_LONG).show()
+                    return
+                }
+                if (binding.autoCompleteTextViewClient.text.toString() == "") {
+                    Toast.makeText(this, "Seleccione un cliente", Toast.LENGTH_LONG).show()
+                    return
+                }
                 var type = binding.spinnerType.selectedItem.toString()
                 var precio = 0.0
                 if (type == "Vehiculo") {
-                    val selectVehicleItem = binding.autoCompleteTextViewProduct.text.toString()
-                    val VehicleId = vehiclesMap[selectVehicleItem]
-                    text = text + "-Vehiculo: $selectVehicleItem"
+                    val VehicleId = vehiclesMap[selectProduct]
+                    text = text + "-Vehiculo: $selectProduct"
                     precio = vehicles.vehicles.find { it.id == VehicleId }!!.price
                 } else {
-                    val selectSuppliItem = binding.autoCompleteTextViewProduct.text.toString()
-                    val SupplieId = suppliesMap[selectSuppliItem]
-                    text = text + "-Insumo: $selectSuppliItem"
+                    val SupplieId = suppliesMap[selectProduct]
+                    text = text + "-Insumo: $selectProduct"
                     precio = supplies.supplies.find { it.id == SupplieId }!!.price
                 }
-                var cantidad = binding.txtProductQuantitySale.text.toString()
                 var total = BigDecimal(precio * cantidad.toDouble()).toPlainString()
                 totalSale += total.toDouble()
                 text  = text + " Cantidad: $cantidad Total: $total \n"
                 text.also { binding.txtResumenSale.text = it }
+                binding.textEtiquetaTotal.text = "Total:"
+                binding.textTotal.text = BigDecimal(totalSale).toPlainString()
                 clearFields()
                 binding.autoCompleteTextViewClient.isEnabled = false
                 binding.autoCompleteTextViewClient.inputType = 0
@@ -132,6 +145,8 @@ class RegisterSale : AppCompatActivity(), View.OnClickListener{
                 }
                 Globals.listaSaleDetails.saleDetails.clear()
                 binding.txtResumenSale.text = ""
+                binding.autoCompleteTextViewClient.isEnabled = true
+                binding.autoCompleteTextViewClient.inputType = 1
                 Toast.makeText(this, "Venta registrada", Toast.LENGTH_LONG).show()
             }
             R.id.btnListSale -> {
