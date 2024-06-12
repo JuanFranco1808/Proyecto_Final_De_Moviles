@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFEFD5"
     tools:context=".views.RegisterUser">
 
     <EditText
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:ems="10"
+        android:fontFamily="@font/roboto_slab"
         android:hint="@string/Cedula"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:ems="10"
+        android:fontFamily="@font/roboto_slab"
         android:hint="@string/name"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:ems="10"
+        android:fontFamily="@font/roboto_slab"
         android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +56,7 @@
         android:layout_height="50sp"
         android:layout_marginBottom="184dp"
         android:backgroundTint="#4CAF50"
+        android:fontFamily="@font/roboto_slab"
         android:text="@string/SignIn"
         android:textSize="20sp"
         app:cornerRadius="10sp"

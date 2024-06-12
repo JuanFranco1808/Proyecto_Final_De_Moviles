@@ -24,9 +24,9 @@ class MainMenu : AppCompatActivity(), View.OnClickListener {
         binding.btnSupplies.setOnClickListener(this)
         binding.btnSales.setOnClickListener(this)
         var texto = Globals.getSharePreferenceName(this)
-        texto = texto + "\n" + Globals.getSharePreferenceRoll(this)
+        var rol = Globals.getSharePreferenceRoll(this)
+        texto = texto + "\n" + rol
         binding.txtViewName.text = texto
-
     }
     override fun onClick(v: View?) {
         when(v?.id) {
@@ -36,21 +36,37 @@ class MainMenu : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
             R.id.btnClients -> {
-                val intent = Intent(this, RegisterClient::class.java)
-                startActivity(intent)
+                if(rolValidation()) {
+                    val intent = Intent(this, RegisterClient::class.java)
+                    startActivity(intent)
+                }
             }
             R.id.btnVehicles -> {
-                val intent = Intent(this, RegisterVehicle::class.java)
-                startActivity(intent)
+                if (rolValidation()) {
+                    val intent = Intent(this, RegisterVehicle::class.java)
+                    startActivity(intent)
+                }
             }
             R.id.btnSupplies -> {
-                val intent = Intent(this, RegisterSupplies::class.java)
-                startActivity(intent)
+                if (rolValidation()) {
+                    val intent = Intent(this, RegisterSupplies::class.java)
+                    startActivity(intent)
+                }
             }
             R.id.btnSales -> {
                 val intent = Intent(this, RegisterSale::class.java)
                 startActivity(intent)
             }
         }
+    }
+    private fun rolValidation(): Boolean {
+        val rol = Globals.getSharePreferenceRoll(this)
+        if (rol=="User"){
+            Toast.makeText(this, "Acceso denegado", Toast.LENGTH_LONG).show()
+        }
+        else if (rol=="Admin"){
+            return true
+        }
+        return false
     }
 }

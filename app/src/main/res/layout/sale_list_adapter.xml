@@ -3,13 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFEFD5">
 
     <TextView
         android:id="@+id/txtSaleIdUser"
         android:layout_width="150sp"
         android:layout_height="30sp"
         android:layout_marginTop="28dp"
+        android:fontFamily="@font/roboto_slab"
         android:text="Id User"
         app:layout_constraintEnd_toStartOf="@+id/btnSaleDetails"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,6 +22,7 @@
         android:layout_width="150sp"
         android:layout_height="30sp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_slab"
         android:text="Id Client"
         app:layout_constraintEnd_toStartOf="@+id/btnSaleDetails"
         app:layout_constraintHorizontal_bias="0.5"
@@ -30,6 +33,7 @@
         android:id="@+id/txtSaleTotal"
         android:layout_width="150sp"
         android:layout_height="30sp"
+        android:fontFamily="@font/roboto_slab"
         android:text="Total"
         app:layout_constraintEnd_toEndOf="@+id/btnSaleDetails"
         app:layout_constraintHorizontal_bias="1.0"
@@ -42,6 +46,7 @@
         android:layout_height="42dp"
         android:layout_marginTop="68dp"
         android:backgroundTint="#2196F3"
+        android:fontFamily="@font/roboto_slab"
         android:text="@string/btnSaleDetail"
         android:textSize="20sp"
         app:cornerRadius="10sp"

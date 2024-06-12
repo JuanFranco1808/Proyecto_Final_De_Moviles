@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFEFD5"
     tools:context=".views.ViewList">
 
     <Button
@@ -13,6 +14,7 @@
         android:layout_height="50sp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="#3F51B5"
+        android:fontFamily="@font/roboto_slab"
         android:text="@string/btnBack"
         android:textSize="20sp"
         app:cornerRadius="10sp"
