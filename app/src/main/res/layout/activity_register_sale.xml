@@ -67,7 +67,7 @@
         android:id="@+id/btnListSale"
         android:layout_width="120sp"
         android:layout_height="50sp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#E91E63"
         android:fontFamily="@font/roboto_slab"
         android:text="@string/btnList"
@@ -82,17 +82,16 @@
         android:id="@+id/btnBackSale"
         android:layout_width="120sp"
         android:layout_height="50sp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#3F51B5"
         android:fontFamily="@font/roboto_slab"
         android:text="@string/btnBack"
         android:textSize="20sp"
         app:cornerRadius="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnListSale"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintTop_toBottomOf="@+id/btnListSale" />
 
     <Spinner
         android:id="@+id/spinnerType"

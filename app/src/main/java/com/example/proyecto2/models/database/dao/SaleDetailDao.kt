@@ -16,6 +16,6 @@ interface SaleDetailDao {
     fun updateSaleDetail(saleDetail: SaleDetailEntity)
     @Query("SELECT * FROM saleDetail")
     fun getAllSaleDetails(): List<SaleDetailEntity>
-    @Query("SELECT * FROM saleDetail WHERE id = :id")
-    fun getSaleDetailById(id: Int): SaleDetailEntity
+    @Query("SELECT * FROM saleDetail WHERE idSale = :id")
+    fun getSaleDetailsBySaleId(id: Int): List<SaleDetailEntity>
 }

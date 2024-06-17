@@ -61,11 +61,14 @@ class MainMenu : AppCompatActivity(), View.OnClickListener {
     }
     private fun rolValidation(): Boolean {
         val rol = Globals.getSharePreferenceRoll(this)
-        if (rol=="User"){
-            Toast.makeText(this, "Acceso denegado", Toast.LENGTH_LONG).show()
-        }
-        else if (rol=="Admin"){
+        if (rol=="Admin"){
             return true
+        }
+        else if (rol=="User"){
+            return true
+        }
+        else {
+            Toast.makeText(this, "Acceso denegado", Toast.LENGTH_LONG).show()
         }
         return false
     }

@@ -18,4 +18,6 @@ interface SaleDao {
     fun getAllSales(): List<SaleEntity>
     @Query("SELECT * FROM sale WHERE date = :date")
     fun getSaleByDate(date: String): SaleEntity
+    @Query("SELECT * FROM sale WHERE idUser = :id")
+    fun getAllSalesByUserId(id: Int): List<SaleEntity>
 }

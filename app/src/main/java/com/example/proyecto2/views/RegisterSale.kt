@@ -29,9 +29,9 @@ class RegisterSale : AppCompatActivity(), View.OnClickListener{
     private val clientesMap = mutableMapOf<String, Int>()
     private val suppliesMap = mutableMapOf<String, Int>()
     private val vehiclesMap = mutableMapOf<String, Int>()
-    private var clients: Clients = Clients(Globals.getDatabase(this)?.clientDao()?.getAllClients()!! as ArrayList<ClientEntity>)
-    private val supplies: Supplies = Supplies(Globals.getDatabase(this)?.supplieDao()?.getAllSupplies()!! as ArrayList<SupplieEntity>)
-    private var vehicles: Vehicles = Vehicles(Globals.getDatabase(this)?.vehicleDao()?.getAllVehicles()!! as ArrayList<VehicleEntity>)
+    private lateinit var clients: Clients
+    private lateinit var supplies: Supplies
+    private lateinit var vehicles: Vehicles
     private var text ="Articulos: \n"
     private var totalSale = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +47,17 @@ class RegisterSale : AppCompatActivity(), View.OnClickListener{
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, types)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerType.adapter = adapter
+        var roll = Globals.getSharePreferenceRoll(this)
+        if (roll == "Admin") {
+            clients= Clients(Globals.getDatabase(this)?.clientDao()?.getAllClients()!! as ArrayList<ClientEntity>)
+            supplies= Supplies(Globals.getDatabase(this)?.supplieDao()?.getAllSupplies()!! as ArrayList<SupplieEntity>)
+            vehicles= Vehicles(Globals.getDatabase(this)?.vehicleDao()?.getAllVehicles()!! as ArrayList<VehicleEntity>)
+        } else {
+            var id = Globals.getSharePreferenceId(this)
+            clients= Clients(Globals.getDatabase(this)?.clientDao()?.getAllClientsByUserId(id)!! as ArrayList<ClientEntity>)
+            supplies= Supplies(Globals.getDatabase(this)?.supplieDao()?.getAllSuppliesByUserId(id)!! as ArrayList<SupplieEntity>)
+            vehicles= Vehicles(Globals.getDatabase(this)?.vehicleDao()?.getAllVehiclesByUserId(id)!! as ArrayList<VehicleEntity>)
+        }
 
         clientesMap.clear()
         clientesMap.putAll(clients.clients.associate { "${it.name}; NIT:${it.nit}" to it.id })
@@ -103,14 +114,17 @@ class RegisterSale : AppCompatActivity(), View.OnClickListener{
                 }
                 var type = binding.spinnerType.selectedItem.toString()
                 var precio = 0.0
+                var itemid =0
                 if (type == "Vehiculo") {
                     val VehicleId = vehiclesMap[selectProduct]
                     text = text + "-Vehiculo: $selectProduct"
                     precio = vehicles.vehicles.find { it.id == VehicleId }!!.price
+                    itemid = VehicleId!!
                 } else {
                     val SupplieId = suppliesMap[selectProduct]
                     text = text + "-Insumo: $selectProduct"
                     precio = supplies.supplies.find { it.id == SupplieId }!!.price
+                    itemid = SupplieId!!
                 }
                 var total = BigDecimal(precio * cantidad.toDouble()).toPlainString()
                 totalSale += total.toDouble()
@@ -126,6 +140,7 @@ class RegisterSale : AppCompatActivity(), View.OnClickListener{
                 saleDetailEntity.price = total.toDouble()
                 saleDetailEntity.quantity = cantidad.toInt()
                 saleDetailEntity.idSale = 0
+                saleDetailEntity.itemId = itemid
                 Globals.listaSaleDetails.saleDetails.add(saleDetailEntity)
                 Toast.makeText(this, "Producto añadido", Toast.LENGTH_LONG).show()
             }
@@ -151,6 +166,7 @@ class RegisterSale : AppCompatActivity(), View.OnClickListener{
             }
             R.id.btnListSale -> {
                 val intent = Intent(this, ViewList::class.java)
+                intent.putExtra("tipo", "sale")
                 startActivity(intent)
             }
             R.id.btnBackSale -> {

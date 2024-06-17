@@ -3,10 +3,8 @@ import android.content.Context
 import android.widget.BaseAdapter
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import com.example.proyecto2.models.Supplies
-import com.example.proyecto2.models.database.entities.SupplieEntity
 import com.example.proyecto2.R
 import com.example.proyecto2.models.Globals
 import java.math.BigDecimal
