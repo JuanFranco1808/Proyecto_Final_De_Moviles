@@ -11,6 +11,10 @@ import com.example.proyecto2.R
 import com.example.proyecto2.models.Globals
 import com.example.proyecto2.views.ViewList
 import java.math.BigDecimal
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+
 class SaleAdapter : BaseAdapter{
     var context : Context
     var sales : Sales
@@ -40,11 +44,18 @@ class SaleAdapter : BaseAdapter{
 
         var txtSaleTotal = view?.findViewById<TextView>(R.id.txtSaleTotal)
         val precio = BigDecimal(sale.total).toPlainString()
-        txtSaleTotal?.text = "Precio: " + precio
+        txtSaleTotal?.text = "Total: " + precio
 
         var txtSaleIdUser = view?.findViewById<TextView>(R.id.txtSaleIdUser)
         var userName = Globals.getDatabase(context)?.userDao()?.getUserNameById(sale.idUser)
-        txtSaleIdUser?.text = "Usuario: " + userName
+        //convertir a formato dia mes año la fecha y en texto
+        val timestamp = sale.date.toLong()
+        // Crear un objeto Date a partir del timestamp
+        val date = Date(timestamp)
+        // Formatear la fecha
+        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val formattedDate = sdf.format(date)
+        txtSaleIdUser?.text = "Fecha:" + formattedDate.toString()+ "\nUsuario:" +userName
 
         var button = view?.findViewById<TextView>(R.id.btnSaleDetails)
         button?.setOnClickListener {
