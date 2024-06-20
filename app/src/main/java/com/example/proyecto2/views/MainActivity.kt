@@ -25,7 +25,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         Globals.initDatabase(this)
         binding.btnSignIn.setOnClickListener(this)
         binding.btnSignUp.setOnClickListener(this)
-
+        val userLog = Globals.getSharePreferenceName(this)
+        if (userLog != "") {
+            val intent = Intent(this, MainMenu::class.java)
+            startActivity(intent)
+        }
     }
     override fun onClick(v: View?) {
         when(v?.id) {

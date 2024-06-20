@@ -19,8 +19,8 @@
 
     <TextView
         android:id="@+id/txtSaleIdClient"
-        android:layout_width="168dp"
-        android:layout_height="32dp"
+        android:layout_width="173dp"
+        android:layout_height="34dp"
         android:fontFamily="@font/roboto_slab"
         android:text="Id Client"
         app:layout_constraintEnd_toStartOf="@+id/btnSaleDetails"

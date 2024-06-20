@@ -27,6 +27,12 @@ class Globals {
             editor.putInt("id", user.id)
             editor.commit()
         }
+        fun deleteSharePreference(context: Context) {
+            var preferences = context.getSharedPreferences("user", Context.MODE_PRIVATE)
+            var editor = preferences.edit()
+            editor.clear()
+            editor.commit()
+        }
 
         fun getSharePreferenceName(context: Context): String {
             var preferences = context.getSharedPreferences("user", Context.MODE_PRIVATE)

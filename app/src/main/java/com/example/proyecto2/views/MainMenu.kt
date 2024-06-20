@@ -32,6 +32,7 @@ class MainMenu : AppCompatActivity(), View.OnClickListener {
         when(v?.id) {
             R.id.btnSignOut -> {
                 val intent = Intent(this, MainActivity::class.java)
+                Globals.deleteSharePreference(this)
                 Toast.makeText(this, "Cerrando sesion", Toast.LENGTH_LONG).show()
                 startActivity(intent)
             }
